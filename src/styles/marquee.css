@@ -1,0 +1,66 @@
+/* ==========================================================================
+   MARQUEE — two crossing tilted ticker bands
+   ========================================================================== */
+.marquee {
+  position: relative;
+  z-index: 5;
+  padding: 2.4rem 0 3.4rem;
+  overflow: hidden;
+}
+.marquee__band {
+  width: 112%;
+  margin-left: -6%;
+  padding: 0.85rem 0;
+  overflow: hidden;
+}
+.marquee__band--lime {
+  background: var(--lime);
+  color: var(--ink);
+  transform: rotate(-1.6deg);
+}
+.marquee__band--ink {
+  margin-top: -1.2rem;
+  background: var(--ink);
+  color: var(--paper);
+  transform: rotate(1.4deg);
+  box-shadow: 0 20px 40px -20px rgba(11, 11, 12, 0.5);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+.marquee__band.is-reverse .marquee__track {
+  animation-direction: reverse;
+}
+.marquee__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.9rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee__sep {
+  margin-left: 2.8rem;
+  font-size: 0.8em;
+  color: var(--orange);
+}
+.marquee__band--ink .marquee__sep {
+  color: var(--lime);
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,211 @@
+/* ==========================================================================
+   EDUCATION & EXPERIENCE — scroll-drawn timeline + sticky experience card
+   ========================================================================== */
+.education {
+  background: var(--paper);
+  padding-bottom: var(--section-y);
+}
+.education__grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2.8rem;
+}
+.timeline__rail {
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line);
+}
+.timeline__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--orange), var(--lime));
+  transform-origin: top;
+}
+.timeline__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.timeline__item {
+  position: relative;
+}
+.timeline__dot {
+  position: absolute;
+  left: -2.8rem;
+  top: 1.7rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  z-index: 2;
+}
+.timeline__dot.is-current {
+  border-color: var(--orange);
+}
+.timeline__dot.is-current::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: dot-pulse 2.2s ease-out infinite;
+}
+
+.edu {
+  padding: 1.5rem 1.7rem;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  transition: box-shadow 0.4s, border-color 0.3s;
+}
+.edu:hover {
+  border-color: rgba(230, 74, 35, 0.45);
+  box-shadow: 0 30px 56px -28px rgba(11, 11, 12, 0.3);
+}
+.edu__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.edu__period {
+  font: 600 0.74rem var(--font-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.edu__status {
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  background: var(--paper-dim);
+  font: 600 0.68rem var(--font-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.edu__status.is-current {
+  background: var(--lime);
+}
+.edu__degree {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font: 700 clamp(1.05rem, 1.8vw, 1.3rem) / 1.25 var(--font-ui);
+}
+.edu__degree svg {
+  flex: none;
+  margin-top: 0.1rem;
+  color: var(--orange);
+}
+.edu__school {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  color: #4a4a4d;
+}
+.edu__score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--line);
+}
+.edu__score span {
+  font: 600 0.68rem var(--font-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.edu__score strong {
+  font: 700 1.6rem var(--font-ui);
+}
+
+/* experience */
+.experience {
+  position: sticky;
+  top: 110px;
+}
+.exp {
+  position: relative;
+  overflow: hidden;
+  padding: 1.9rem;
+  border-radius: 28px;
+  background: radial-gradient(circle at 100% 0%, rgba(230, 74, 35, 0.45), transparent 55%), var(--ink);
+  color: var(--paper);
+  box-shadow: 0 34px 60px -28px rgba(11, 11, 12, 0.65);
+}
+.exp__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  font: 600 0.7rem var(--font-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+.exp__role {
+  font: 700 clamp(1.3rem, 2.2vw, 1.7rem) / 1.15 var(--font-ui);
+}
+.exp__company {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: #e5e5e6;
+}
+.exp__company span {
+  color: #9a9a9e;
+}
+.exp__points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.3rem;
+}
+.exp__points li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #c9c9cb;
+}
+.exp__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+/* no experience card → timeline uses the full width */
+.education__grid--solo {
+  grid-template-columns: minmax(0, 860px);
+}
+
+@media (max-width: 960px) {
+  .education__grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+  .experience {
+    position: static;
+  }
+}

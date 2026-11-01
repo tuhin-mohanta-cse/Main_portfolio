@@ -1,0 +1,14 @@
+/* Single entry point — order matters (tokens → base → shared UI → sections). */
+@import './theme.css';
+@import './global.css';
+@import './ui.css';
+@import './navbar.css';
+@import './hero.css';
+@import './marquee.css';
+@import './about.css';
+@import './skills.css';
+@import './education.css';
+@import './projects.css';
+@import './certifications.css';
+@import './contact.css';
+@import './footer.css';

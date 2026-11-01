@@ -1,0 +1,155 @@
+/* ==========================================================================
+   CERTIFICATIONS & LANGUAGES
+   ========================================================================== */
+.certs {
+  background: var(--paper);
+}
+.certs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.certs__grid > li {
+  display: block;
+}
+.cert {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  height: 100%;
+  overflow: hidden;
+  padding: 1.7rem;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.4s, border-color 0.3s;
+}
+.cert:hover {
+  border-color: rgba(230, 74, 35, 0.5);
+  box-shadow: 0 34px 60px -30px rgba(11, 11, 12, 0.35);
+}
+.cert__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: var(--ink);
+  color: var(--lime);
+}
+.cert__kind {
+  font: 700 0.68rem var(--font-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.cert__title {
+  font: 700 clamp(1.05rem, 1.7vw, 1.25rem) / 1.25 var(--font-ui);
+}
+.cert__issuer {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.cert__issuer span {
+  color: var(--grey);
+  font-weight: 400;
+}
+
+/* holographic foil on the featured certificate */
+.cert--foil {
+  background: radial-gradient(circle at 100% 0%, rgba(230, 74, 35, 0.4), transparent 55%), var(--ink);
+  border-color: transparent;
+  color: var(--paper);
+}
+.cert--foil .cert__icon {
+  background: var(--lime);
+  color: var(--ink);
+}
+.cert--foil .cert__issuer span {
+  color: #a9a9ab;
+}
+.cert--foil::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(198, 255, 61, 0.25) 38%, rgba(139, 123, 255, 0.28) 50%, rgba(230, 74, 35, 0.25) 62%, transparent 80%);
+  background-size: 260% 100%;
+  animation: foil 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes foil {
+  0% {
+    background-position: 130% 0;
+  }
+  100% {
+    background-position: -130% 0;
+  }
+}
+
+.achievements,
+.langs {
+  margin-top: 2.6rem;
+}
+.achievements__title,
+.langs__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font: 700 0.78rem var(--font-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.achievements ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.achievements li {
+  font-size: 0.95rem;
+}
+.langs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.langs__list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  transition: background 0.3s, color 0.3s, transform 0.35s var(--ease);
+}
+.langs__list li:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-3px);
+}
+.langs__list strong {
+  font: 700 0.9rem var(--font-ui);
+}
+.langs__list span {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+@media (max-width: 960px) {
+  .certs__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .certs__grid {
+    grid-template-columns: 1fr;
+  }
+}

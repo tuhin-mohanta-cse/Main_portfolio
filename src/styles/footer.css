@@ -1,0 +1,99 @@
+/* ==========================================================================
+   FOOTER — links, always-visible social icons, giant 3D wordmark
+   ========================================================================== */
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+}
+.footer__bar {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2.4rem;
+  align-items: start;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  border-top: 1px solid var(--line-dark);
+}
+.footer__k {
+  margin-bottom: 0.95rem;
+  font: 600 0.7rem var(--font-ui);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8a8e;
+}
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+}
+.footer__links a {
+  font-size: 0.9rem;
+  color: #d4d4d5;
+  transition: color 0.25s;
+}
+.footer__links a:hover {
+  color: var(--lime);
+}
+.footer__social {
+  gap: 0.75rem;
+}
+.footer__col--meta {
+  text-align: right;
+}
+.footer__brand {
+  margin-bottom: 0.4rem;
+  font: 700 0.95rem var(--font-ui);
+}
+.footer__copy {
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: #8a8a8e;
+}
+
+.footer__wordwrap {
+  position: relative;
+  margin-top: 1rem;
+}
+.footer__word {
+  padding-bottom: 1.6rem;
+  text-align: center;
+  font-size: clamp(3.4rem, 16.5vw, 12.5rem);
+  color: var(--paper);
+  user-select: none;
+  transform-origin: 50% 100%;
+  text-shadow: 0 1px 0 #d8d6cf, 0 2px 0 #cac8c0, 0 3px 0 #bcbab2, 0 4px 0 #aeaca4, 0 5px 0 #a09e96,
+    0 8px 18px rgba(0, 0, 0, 0.45);
+}
+.footer__top {
+  position: absolute;
+  z-index: 5;
+  top: -26px;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--ink);
+  box-shadow: 0 14px 30px -10px rgba(230, 74, 35, 0.6);
+  transform: translateX(-50%);
+  transition: transform 0.35s var(--ease), background 0.3s;
+}
+.footer__top:hover {
+  transform: translateX(-50%) translateY(-5px);
+  background: var(--lime);
+}
+
+@media (max-width: 960px) {
+  .footer__bar {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer__col--meta {
+    text-align: left;
+  }
+}
